@@ -13,8 +13,14 @@ export class GeminiService {
     sourceLang: string,
     targetLang: string
   ): Promise<ConversionResult> {
-    // Initialize GoogleGenAI with the API key from environment variables.
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    const apiKey = process.env.API_KEY;
+    
+    if (!apiKey) {
+      throw new Error("Gemini API Key is missing. Please set the API_KEY environment variable.");
+    }
+
+    // Initialize GoogleGenAI with the API key.
+    const ai = new GoogleGenAI({ apiKey });
     
     const prompt = `
       You are an elite polyglot software engineer. Your task is to convert code from ${sourceLang === 'auto' ? 'an automatically detected language' : sourceLang} to ${targetLang}.
