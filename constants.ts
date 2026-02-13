@@ -3,6 +3,9 @@ import { Language } from './types';
 
 export const SUPPORTED_LANGUAGES: Language[] = [
   { id: 'auto', name: 'Auto-detect', extension: '' },
+  { id: 'english', name: 'Plain English', extension: 'txt' },
+  { id: 'pinescript', name: 'Pine Script (v5)', extension: 'pine' },
+  { id: 'lipiscript', name: 'Lipi Script', extension: 'lipi' },
   { id: 'python', name: 'Python', extension: 'py' },
   { id: 'javascript', name: 'JavaScript', extension: 'js' },
   { id: 'typescript', name: 'TypeScript', extension: 'ts' },
